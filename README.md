@@ -1,4 +1,4 @@
-# TWIG CODE CHALLENGE
+# TWIG
 
 Unzip package
 
