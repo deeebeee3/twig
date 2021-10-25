@@ -28,6 +28,12 @@ describe("Test thrown exceptions", () => {
       twig?.groupArrayElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1.234);
     }).toThrow("The divider must be a positive integer greater than zero.");
   });
+
+  it("throws a message if the divider is greater than array length", () => {
+    expect(() => {
+      twig?.groupArrayElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11);
+    }).toThrow("The divider cannot be greater than the length of the array.");
+  });
 });
 
 describe("Test arrays split by EVEN divider", () => {
@@ -55,6 +61,12 @@ describe("Test arrays split by EVEN divider", () => {
 });
 
 describe("Test arrays split by ODD divider", () => {
+  it("Even array with divider of one", () => {
+    expect(
+      twig?.groupArrayElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1)
+    ).toEqual([[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]);
+  });
+
   it("Even array, odd divider", () => {
     expect(
       twig?.groupArrayElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)

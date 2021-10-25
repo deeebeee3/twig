@@ -22,6 +22,12 @@ export class Twig implements ITwig {
         );
       }
 
+      if (divider > arr.length) {
+        throw new Error(
+          "The divider cannot be greater than the length of the array."
+        );
+      }
+
       counter = divider;
       elementsPerArr = Math.floor(arr.length / divider);
 
